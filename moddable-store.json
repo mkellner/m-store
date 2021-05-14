@@ -46,7 +46,7 @@
 			{
 				"path": "thermometer/thermometer_x",
 				"author": "Michael Kellner",
-				"title": "Configurable sensor"
+				"title": "Configurable sensor",
 				"description": "Use the configuration to specify a sensor from the set: BMP180, HTU21D, LM75, MLX90614, SHT3X, TMP102"
 			}
 		]
