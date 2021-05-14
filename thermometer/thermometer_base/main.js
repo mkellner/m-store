@@ -44,10 +44,18 @@ class FakeMeasure {
 
 let measure;
 
-if (Module.has("Measure")) {
-	measure = new (Module.importNow("Measure"))();
+try {
+	if (Module.has("Measure")) {
+		measure = new (Module.importNow("Measure"))();
+		measure.temperature();
+	}
 }
-else {
+catch (e) {
+	trace(`Could not connect to sensor ${measure.name}\n`);
+	measure = undefined;
+}
+
+if (undefined === measure) {
 	// no mod
 	measure = new FakeMeasure();
 }
