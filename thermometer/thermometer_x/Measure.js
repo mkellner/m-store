@@ -7,7 +7,7 @@ import Temperature from "embedded:sensor/SENSOR_NAME";
 class Measure {
 	#sensor;
 	constructor() {
-		this.#sensor = new Temperature({...Host.I2C.default});
+		this.#sensor = new Temperature({...device.I2C.default});
 	}
 	get name() {
 		return "SENSOR_NAME";
