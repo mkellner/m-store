@@ -10,7 +10,7 @@ class Measure {
 		this.#sensor = new Temperature({...Host.I2C.default});
 	}
 	get name() {
-		return SENSOR_NAME;
+		return "SENSOR_NAME";
 	}
 	temperature() {
 		let value = this.#sensor.sample();
