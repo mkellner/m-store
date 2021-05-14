@@ -1,0 +1,55 @@
+{
+	"tech.moddable.thermometer_base": {
+		"app": {
+			"title": "Thermometer Host",
+			"author": "Michael Kellner",
+			"description": "Host for Thermometer application",
+			"home": "https://github.com/mkellner/m-store/tree/main/thermometer/thermometer_base"
+		},
+		"mods": [
+			{
+				"path": "thermometer/thermometer_bmp180",
+				"author": "Michael Kellner",
+				"title": "BMP180",
+				"description": "Use BMP180 sensor"
+			},
+			{
+				"path": "thermometer/thermometer_htu21d",
+				"author": "Michael Kellner",
+				"title": "HTU21D",
+				"description": "Use HTU21D sensor"
+			},
+			{
+				"path": "thermometer/thermometer_lm75",
+				"author": "Michael Kellner",
+				"title": "LM75",
+				"description": "Use LM75 sensor"
+			},
+			{
+				"path": "thermometer/thermometer_mlx90614",
+				"author": "Michael Kellner",
+				"title": "MLX90614",
+				"description": "Use MLX90614 sensor"
+			},
+			{
+				"path": "thermometer/thermometer_sht3x",
+				"author": "Michael Kellner",
+				"title": "SHT3X",
+				"description": "Use SHT3X sensor"
+			},
+			{
+				"path": "thermometer/thermometer_tmp102",
+				"author": "Michael Kellner",
+				"title": "TMP102",
+				"description": "Use TMP102 sensor"
+			},
+			{
+				"path": "thermometer/thermometer_x",
+				"author": "Michael Kellner",
+				"title": "Configurable sensor"
+				"description": "Use the configuration to specify a sensor from the set: BMP180, HTU21D, LM75, MLX90614, SHT3X, TMP102"
+			}
+		]
+	}
+}
+
