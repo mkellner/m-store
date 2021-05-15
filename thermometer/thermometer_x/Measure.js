@@ -22,6 +22,9 @@ class Measure {
 		else
 			return { hi: RANGE_HI_C, lo: RANGE_LO_C, div: 5 };
 	}
+	get units() {
+		return (USE_FARENHEIT) ? "F" : "C";
+	}
 	temperature() {
 		let value = this.#sensor.sample();
 		let degrees;

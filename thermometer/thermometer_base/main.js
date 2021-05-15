@@ -31,6 +31,9 @@ class FakeMeasure {
 	get range() {
 		return { hi: 110, lo: 60, div: 10 };
 	}
+	get units() {
+		return "F";
+	}
 	temperature() {
 		this.degrees += this.bump;
 		if (this.degrees > 100) {
@@ -62,8 +65,11 @@ if (undefined === measure) {
 	// no mod
 	measure = new FakeMeasure();
 }
-trace(`Using temperature module "${measure.name}"\n`);
 
+const range = measure.range;
+
+trace(`Using temperature module "${measure.name}"\n`);
+trace(`Range: ${range.hi} to ${range.lo} ${measure.units}\n`);
 
 let render = new Poco(screen);
 
@@ -106,16 +112,16 @@ class VertThermo {
 		const degOffset = degrees - this.loTemp;
 		const degRange = this.hiTemp - this.loTemp;
 		let top = this.tempToY(degrees) - this.topGap/2 + 1;
-		render.begin(x, this.y, this.width + labelWidth, this.height);
+		render.begin(x, this.y, this.width + labelWidth * 2, this.height);
 			render.fillRectangle(backgroundColor, x, this.y, this.width+1, this.height);
 			render.drawBitmap(this.bitmap, this.x, this.y);
 			render.fillRectangle(this.fillColor, this.x+13, top, 34, this.pixelRange - (top - this.y) + this.topGap);
 			this.drawTicks();
+			render.
+			render.drawText(degrees, markerFont, black, this.x + this.width + 2, y - (markerFont.height / 2) + 1);
 		render.end();
 	}
 }
-
-const range = measure.range;
 
 let indicator = new VertThermo({
 		x:(render.width - 60) >> 1, y:render.height - 248 - 5,
