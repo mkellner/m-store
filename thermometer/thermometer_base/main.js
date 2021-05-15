@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2017  Moddable Tech, Inc.
+ * Copyright (c) 2016-2021  Moddable Tech, Inc.
  *
  *   This file is part of the Moddable SDK.
  * 
@@ -27,6 +27,9 @@ class FakeMeasure {
 	}
 	get name() {
 		return "simulated";
+	}
+	get range() {
+		return { hi: 110, lo: 60, div: 10 };
 	}
 	temperature() {
 		this.degrees += this.bump;
@@ -112,13 +115,15 @@ class VertThermo {
 	}
 }
 
+const range = measure.range;
+
 let indicator = new VertThermo({
 		x:(render.width - 60) >> 1, y:render.height - 248 - 5,
 		width:61, height:248,
 		pixelRange: 190,
-		loTemp: 60,
-		hiTemp: 110,
-		tempDiv: 10,
+		loTemp: range.lo,
+		hiTemp: range.hi,
+		tempDiv: range.div,
 		bitmap:thermo, fillColor:red, tickColor:black
 	});
 
@@ -130,18 +135,6 @@ render.begin();
 	render.fillRectangle(black, 0, headerHeight + 2, render.width, 1);
 	render.drawText(measure.name, titleFont, black, (render.width - render.getTextWidth(measure.name, titleFont)) / 2, headerHeight + 2 + (headerHeight - titleFont.height) / 2);
 render.end();
-
-/*
-import Temperature from "embedded:sensor/LM75";
-const temperature = new Temperature({...Host.I2C.default});
-
-Timer.repeat(() => {
-	let value = temperature.sample();
-	let degrees = (value.temperature * 1.8) + 32.0;
-	indicator.update(degrees);
-}, 100);
-
-*/
 
 Timer.repeat(() => {
 	let degrees = measure.temperature();
