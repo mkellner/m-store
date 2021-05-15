@@ -113,12 +113,12 @@ class VertThermo {
 		const degRange = this.hiTemp - this.loTemp;
 		let top = this.tempToY(degrees) - this.topGap/2 + 1;
 		render.begin(x, this.y, this.width + labelWidth * 2, this.height);
-			render.fillRectangle(backgroundColor, x, this.y, this.width+1, this.height);
+//			render.fillRectangle(backgroundColor, x, this.y, this.width+1, this.height);
+			render.fillRectangle(backgroundColor, 0, 0, render.width, render.height);
 			render.drawBitmap(this.bitmap, this.x, this.y);
 			render.fillRectangle(this.fillColor, this.x+13, top, 34, this.pixelRange - (top - this.y) + this.topGap);
 			this.drawTicks();
-			render.
-			render.drawText(degrees, markerFont, black, this.x + this.width + 2, y - (markerFont.height / 2) + 1);
+			render.drawText(degrees, markerFont, black, this.x + this.width + 2, top - markerFont.height/2);
 		render.end();
 	}
 }
