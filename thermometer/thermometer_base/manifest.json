@@ -9,7 +9,7 @@
 	"modules": {
 		"*": [
 			"./main",
-			"../../mods/loadmod/*",
+			"./loadmod/*",
 			"$(MODDABLE)/modules/base/modules/*",
 			"$(MODDABLE)/modules/data/crc/*"
 		]

@@ -118,7 +118,7 @@ class VertThermo {
 			render.drawBitmap(this.bitmap, this.x, this.y);
 			render.fillRectangle(this.fillColor, this.x+13, top, 34, this.pixelRange - (top - this.y) + this.topGap);
 			this.drawTicks();
-			render.drawText(degrees, markerFont, black, this.x + this.width + 2, top - markerFont.height/2);
+			render.drawText(degrees, markerFont, black, this.x + this.width - 5, top - markerFont.height/2);
 		render.end();
 	}
 }
